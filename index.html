@@ -21,6 +21,27 @@
         </div>
     </body>
     <script type="text/javascript">
-        console.log("test")
+        // Reference: https://javascript.info/coordinates
+        function getCoords(elem) {
+            let box = elem.getBoundingClientRect();
+
+            return {
+                top: box.top + window.pageYOffset,
+                right: box.right + window.pageXOffset,
+                bottom: box.bottom + window.pageYOffset,
+                left: box.left + window.pageXOffset
+            };
+        } 
+
+        const image = document.querySelector("#conditions-women-running")
+        const imageCoord = getCoords(image)
+
+        console.log("image coordinates")
+        console.log(`top left corner     (${imageCoord.top}, ${imageCoord.left})`)
+        console.log(`bottom right corner (${imageCoord.bottom}, ${imageCoord.right})`)
+        console.log(rect.top, rect.right, rect.bottom, rect.left);
+
+        console.log("image relative to outside")
+        const topOffset = rect.top - outside.top 
     </script>
 </html>
