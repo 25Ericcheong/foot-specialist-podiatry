@@ -5,3 +5,10 @@ h1 {
 p {
     font-family: 'Roboto';
 }
+
+#conditions-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
