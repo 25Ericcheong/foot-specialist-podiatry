@@ -16,7 +16,7 @@
             <h1>Foot Specialist Podiatry</h1>
         </main>
         <div id="conditions-section">
-            <p>Test</p>
+            <p class="placeable-items">Test</p>
             <img id="conditions-women-running" src="./running-woman-two-website-removebg-preview.png">
         </div>
     </body>
@@ -31,17 +31,36 @@
                 bottom: box.bottom + window.pageYOffset,
                 left: box.left + window.pageXOffset
             };
-        } 
+        }
+        
+        function createLinkUnder(elem, html) {
+            // create message element
+            const newElem = document.createElement('p');
 
-        const image = document.querySelector("#conditions-women-running")
-        const imageCoord = getCoords(image)
+            // better to us
+            // e a css class for the style here
+            newElem.style.cssText = "position:fixed; color: red";
+            newElem.className = "relative-links"
+
+            // assign coordinates, don't forget "px"!
+            let coords = elem.getBoundingClientRect();
+
+            newElem.style.left = coords.left + "px";
+            newElem.style.top = coords.bottom + "px";
+
+            newElem.innerHTML = html;
+
+            return newElem;
+        }
+
+        const imageElem = document.querySelector("#conditions-women-running")
+        const imageCoord = getCoords(imageElem)
 
         console.log("image coordinates")
         console.log(`top left corner     (${imageCoord.top}, ${imageCoord.left})`)
         console.log(`bottom right corner (${imageCoord.bottom}, ${imageCoord.right})`)
-        console.log(rect.top, rect.right, rect.bottom, rect.left);
 
-        console.log("image relative to outside")
-        const topOffset = rect.top - outside.top 
+        const newElem = createLinkUnder(imageElem ,"Test")
+        document.body.append(newElem)
     </script>
 </html>
