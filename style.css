@@ -11,4 +11,9 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid;
+}
+
+#conditions-women-running {
+    border: 1px solid;
 }
