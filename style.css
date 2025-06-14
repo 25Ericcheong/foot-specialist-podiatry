@@ -1,28 +1,15 @@
-h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-p {
-    font-family: 'Roboto';
-}
-
 #conditions-section {
-    height: 100%;
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     border: 1px solid;
 }
 
-.relative-links {
-    border: 1px solid;
-}
-
-.button-links {
-    border: 1px solid;
-    border-radius: 25%;
-    color: black;
+.anchor-links {
+    background-color: #f8c761;
+    border: 1px solid black;
+    border-radius: 50%;
+    position:absolute; 
+    padding: 10px;
 }
 
 #conditions-women-running {
