@@ -19,6 +19,7 @@ window.onload = function () {
 
       anchor.style.left = coords.left + pos.xCoord + "px";
       anchor.style.top = coords.top + pos.yCoord + "px";
+      anchor.style.zIndex = 1000;
 
       anchor.href = details.href;
       anchor.id = details.anchorId
