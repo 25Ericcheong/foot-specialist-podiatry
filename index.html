@@ -16,7 +16,6 @@
             <h1>Foot Specialist Podiatry</h1>
         </main>
         <div id="conditions-section">
-            <p class="placeable-items">Test</p>
             <img id="conditions-women-running" src="./running-woman-two-website-removebg-preview.png">
         </div>
     </body>
@@ -33,24 +32,24 @@
             };
         }
         
-        function createLinkUnder(elem, html) {
+        function createLinkUnder(elem, pos) {
             // create message element
-            const newElem = document.createElement('p');
+            const anchor = document.createElement("a");
 
-            // better to us
-            // e a css class for the style here
-            newElem.style.cssText = "position:fixed; color: red";
-            newElem.className = "relative-links"
+            // better to use a css class for the style here
+            anchor.style.cssText = "position:absolute; color: red";
+            anchor.className = "button-links"
 
             // assign coordinates, don't forget "px"!
-            let coords = elem.getBoundingClientRect();
+            let coords = getCoords(elem);
 
-            newElem.style.left = coords.left + "px";
-            newElem.style.top = coords.bottom + "px";
+            anchor.style.left = coords.left + pos.xCoord + "px";
+            anchor.style.top = coords.top + pos.yCoord + "px";
 
-            newElem.innerHTML = html;
+            anchor.href = 'https://www.example.com';
+            anchor.textContent = 'Visit Example';
 
-            return newElem;
+            return anchor;
         }
 
         const imageElem = document.querySelector("#conditions-women-running")
@@ -60,7 +59,27 @@
         console.log(`top left corner     (${imageCoord.top}, ${imageCoord.left})`)
         console.log(`bottom right corner (${imageCoord.bottom}, ${imageCoord.right})`)
 
-        const newElem = createLinkUnder(imageElem ,"Test")
-        document.body.append(newElem)
+        // const newElem = createLinkUnder(imageElem)
+        // document.body.append(newElem)
+
+        function createLinks() {
+            const links = [
+                {xCoord: 0, yCoord: 0},
+                {xCoord: 100, yCoord: 100}
+            ]
+
+            for (let index = 0; index < links.length; index++) {
+                const linkCoord = links[index];
+
+                const buttonLink = createLinkUnder(imageElem, linkCoord)
+                document.body.append(buttonLink)
+            }
+        }
+
+        createLinks();
+
+        window.addEventListener('resize', function(event) {
+            createLinks();
+        }, true);
     </script>
 </html>
