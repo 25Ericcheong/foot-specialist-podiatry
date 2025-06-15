@@ -81,17 +81,17 @@ window.onload = function () {
       {
         name: "shin",
         coords: {xCoord: 317, yCoord: 415},
-        details: {href: "www.google.com", anchorId: "anchor_3"}
+        details: {href: "www.google.com", anchorId: "anchor_4"}
       },
       {
         name: "ankle",
         coords: {xCoord: 99, yCoord: 441},
-        details: {href: "www.google.com", anchorId: "anchor_3"}
+        details: {href: "www.google.com", anchorId: "anchor_5"}
       },
       {
         name: "arch",
         coords: {xCoord: 38, yCoord: 465},
-        details: {href: "www.google.com", anchorId: "anchor_3"}
+        details: {href: "www.google.com", anchorId: "anchor_6"}
       },
   ]
 
