@@ -59,39 +59,67 @@ window.onload = function () {
 
   const links = [
       {
-        name: "hips",
+        name: "lower_back",
         coords: {xCoord: 208, yCoord: 225},
-        details: {href: "www.google.com", anchorId: "anchor_0"}
+        details: {
+          href: "www.google.com", anchorId: "anchor_0", 
+          category:"Lower Back Pain", examples:["Sciatica", "Sacroiliac Joint Dysfunction"]
+        },
       },
       {
-        name: "toes",
+        name: "hips",
+        coords: {xCoord: 280, yCoord: 265},
+        details: {
+          href: "www.google.com", anchorId: "anchor_1",
+          category:"Hip Pain", examples:["OA", "RA", "Bursitis", "ITB"]
+        },
+      },
+      {
+        name: "skin_and_nail_conditions",
         coords: {xCoord: 312, yCoord: 507},
-        details: {href: "www.google.com", anchorId: "anchor_1"}
+        details: {
+          href: "www.google.com", anchorId: "anchor_2",
+          category:"Skin and Nail Conditions", examples:["Corns & calluses", "Fungal Toenails", "Warts", "Athletes Foot", "Ingrown toenails", "Cracked Heels", "Diabetic Foot Ulcer", "Blister"]
+        }
       },
       {
         name: "heels",
         coords: {xCoord: 220, yCoord: 468},
-        details: {href: "www.google.com", anchorId: "anchor_2"}
+        details: {
+          href: "www.google.com", anchorId: "anchor_3",
+          category:"Heel Pain", examples:["Plantar Fasciitis", "Achilles Tendinopathy", "Heel Spurs"]
+        }
       },
       {
         name: "knee",
         coords: {xCoord: 347, yCoord: 355},
-        details: {href: "www.google.com", anchorId: "anchor_3"}
+        details: {href: "www.google.com", anchorId: "anchor_4",
+          category:"Knee Pain", examples:["OA", "Osgood-Schlatters", "ITB", "Patellofemoral Pain Syndrome (PFPS)"]
+        }
       },
       {
         name: "shin",
         coords: {xCoord: 317, yCoord: 415},
-        details: {href: "www.google.com", anchorId: "anchor_4"}
+        details: {
+          href: "www.google.com", anchorId: "anchor_5",
+          category:"Leg Pain", examples:["Shin Splints"]
+        }
       },
       {
         name: "ankle",
         coords: {xCoord: 99, yCoord: 441},
-        details: {href: "www.google.com", anchorId: "anchor_5"}
+        details: {
+          href: "www.google.com", anchorId: "anchor_6",
+          category:"Ankle Pain", examples:["Achilles Tendinopathy", "Ankle Sprain", "Posterior Tibial Tendinopathy", "Peroneal Tendinopathy", "Tarsal Coalition"]
+        }
       },
       {
-        name: "arch",
+        name: "foot",
         coords: {xCoord: 38, yCoord: 465},
-        details: {href: "www.google.com", anchorId: "anchor_6"}
+        details: {
+          href: "www.google.com", anchorId: "anchor_7",
+          category:"Foot Pain", examples:["Bunions", "Plantar Fasciitis", "Plantar Fibroma", "Morton's Neuroma", "Bursitis", "Osteoarthritis", "Rheumatoid Arthritis", "Stress Fracture"]
+        }
       },
   ]
 
