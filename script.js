@@ -11,20 +11,40 @@ window.onload = function () {
       };
   }
   
-  function createLinkUnder(elem, pos, details) {
-      const anchor = document.createElement("a");
-      anchor.className = "anchor-links"
+
+  function handleOnClick(e) {
+    console.log(e.target.getAttribute('category'))
+    console.log(e.target.getAttribute('examples'))
+
+    const val = e.target.getAttribute('examples')
+    const examples = val.split(',')
+
+    for (let index = 0; index < examples.length; index++) {
+      const element = array[index];
+      console.log(element)
+    }
+
+    console.log(e.target.id)
+  }
+
+  function createElementUnder(elem, pos, details) {
+      const div = document.createElement("div");
+      div.className = "cat-examples"
+      div.onclick = handleOnClick
 
       const coords = getCoords(elem);
 
-      anchor.style.left = coords.left + pos.xCoord + "px";
-      anchor.style.top = coords.top + pos.yCoord + "px";
-      anchor.style.zIndex = 1000;
+      div.style.left = coords.left + pos.xCoord + "px";
+      div.style.top = coords.top + pos.yCoord + "px";
+      div.style.zIndex = 1000;
 
-      anchor.href = details.href;
-      anchor.id = details.anchorId
+      div.setAttribute('category', details.category)
+      div.setAttribute('examples', details.examples)
 
-      return anchor;
+      div.href = details.href;
+      div.id = details.anchorId
+
+      return div;
   }
 
   function createLinks(imageElem, links) {
@@ -33,9 +53,9 @@ window.onload = function () {
           const coords = link.coords
           const details = link.details
 
-          const anchorLink = createLinkUnder(imageElem, coords, details)
+          const element = createElementUnder(imageElem, coords, details)
 
-          document.body.append(anchorLink)
+          document.body.append(element)
       }
   }
 
@@ -52,6 +72,7 @@ window.onload = function () {
           }
 
           const imageElemCoords = getCoords(imageElem);
+
           anchor.style.left = imageElemCoords.left + pos.xCoord + "px";
           anchor.style.top = imageElemCoords.top + pos.yCoord + "px";
       }
@@ -60,7 +81,7 @@ window.onload = function () {
   const links = [
       {
         name: "lower_back",
-        coords: {xCoord: 208, yCoord: 225},
+        coords: {xCoord: 175, yCoord: 190},
         details: {
           href: "www.google.com", anchorId: "anchor_0", 
           category:"Lower Back Pain", examples:["Sciatica", "Sacroiliac Joint Dysfunction"]
@@ -68,7 +89,7 @@ window.onload = function () {
       },
       {
         name: "hips",
-        coords: {xCoord: 280, yCoord: 265},
+        coords: {xCoord: 240, yCoord: 220},
         details: {
           href: "www.google.com", anchorId: "anchor_1",
           category:"Hip Pain", examples:["OA", "RA", "Bursitis", "ITB"]
@@ -76,15 +97,15 @@ window.onload = function () {
       },
       {
         name: "skin_and_nail_conditions",
-        coords: {xCoord: 312, yCoord: 507},
+        coords: {xCoord: 268, yCoord: 430},
         details: {
           href: "www.google.com", anchorId: "anchor_2",
-          category:"Skin and Nail Conditions", examples:["Corns & calluses", "Fungal Toenails", "Warts", "Athletes Foot", "Ingrown toenails", "Cracked Heels", "Diabetic Foot Ulcer", "Blister"]
+          category:"Skin and Nail Conditions", examples:["Corns & Calluses", "Fungal Toenails", "Warts", "Athletes Foot", "Ingrown Toenails", "Cracked Heels", "Diabetic Foot Ulcer", "Blister"]
         }
       },
       {
         name: "heels",
-        coords: {xCoord: 220, yCoord: 468},
+        coords: {xCoord: 185, yCoord: 400},
         details: {
           href: "www.google.com", anchorId: "anchor_3",
           category:"Heel Pain", examples:["Plantar Fasciitis", "Achilles Tendinopathy", "Heel Spurs"]
@@ -92,14 +113,14 @@ window.onload = function () {
       },
       {
         name: "knee",
-        coords: {xCoord: 347, yCoord: 355},
+        coords: {xCoord: 300, yCoord: 300},
         details: {href: "www.google.com", anchorId: "anchor_4",
           category:"Knee Pain", examples:["OA", "Osgood-Schlatters", "ITB", "Patellofemoral Pain Syndrome (PFPS)"]
         }
       },
       {
         name: "shin",
-        coords: {xCoord: 317, yCoord: 415},
+        coords: {xCoord: 270, yCoord: 360},
         details: {
           href: "www.google.com", anchorId: "anchor_5",
           category:"Leg Pain", examples:["Shin Splints"]
@@ -107,7 +128,7 @@ window.onload = function () {
       },
       {
         name: "ankle",
-        coords: {xCoord: 99, yCoord: 441},
+        coords: {xCoord: 85, yCoord: 380},
         details: {
           href: "www.google.com", anchorId: "anchor_6",
           category:"Ankle Pain", examples:["Achilles Tendinopathy", "Ankle Sprain", "Posterior Tibial Tendinopathy", "Peroneal Tendinopathy", "Tarsal Coalition"]
@@ -115,7 +136,7 @@ window.onload = function () {
       },
       {
         name: "foot",
-        coords: {xCoord: 38, yCoord: 465},
+        coords: {xCoord: 30, yCoord: 400},
         details: {
           href: "www.google.com", anchorId: "anchor_7",
           category:"Foot Pain", examples:["Bunions", "Plantar Fasciitis", "Plantar Fibroma", "Morton's Neuroma", "Bursitis", "Osteoarthritis", "Rheumatoid Arthritis", "Stress Fracture"]
