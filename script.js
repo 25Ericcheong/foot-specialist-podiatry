@@ -11,21 +11,14 @@ window.onload = function () {
       };
   }
   
-
   function handleOnClick(e) {
-    console.log(e.target.getAttribute('category'))
-    console.log(e.target.getAttribute('examples'))
-
-    const val = e.target.getAttribute('examples')
-    const examples = val.split(',')
-
-    for (let index = 0; index < examples.length; index++) {
-      const element = array[index];
-      console.log(element)
-    }
-
-    console.log(e.target.id)
+    const category = e.target.getAttribute('category')
+    
+    let elem = document.getElementById(e.target.id)
+    elem.textContent = category
+    elem.style.borderRadius = 0
   }
+
 
   function createElementUnder(elem, pos, details) {
       const div = document.createElement("div");
@@ -39,22 +32,6 @@ window.onload = function () {
       div.style.zIndex = 1000;
 
       div.setAttribute('category', details.category)
-      div.setAttribute('examples', details.examples)
-
-      const innerList = document.createElement('ul')
-
-      const categoryElem = document.createElement('p')
-      categoryElem.textContent = details.category
-
-      div.prepend(categoryElem)
-      for (let index = 0; index < details.examples.length; index++) {
-        const exampleContent = details.examples[index];
-        
-        const exampleElem = document.createElement('li')
-        exampleElem.textContent = exampleContent
-
-        div.prepend(exampleElem)
-      }
 
       div.href = details.href;
       div.id = details.elemId
@@ -99,7 +76,7 @@ window.onload = function () {
         coords: {xCoord: 175, yCoord: 190},
         details: {
           href: "www.google.com", elemId: "elem_0", elemInnerId: "inner_elem_0",
-          category:"Lower Back Pain", examples:["Sciatica", "Sacroiliac Joint Dysfunction"]
+          category:"Lower Back Pain"
         },
       },
       {
@@ -107,7 +84,7 @@ window.onload = function () {
         coords: {xCoord: 240, yCoord: 220},
         details: {
           href: "www.google.com", elemId: "elem_1", elemInnerId: "inner_elem_1",
-          category:"Hip Pain", examples:["OA", "RA", "Bursitis", "ITB"]
+          category:"Hip Pain"
         },
       },
       {
@@ -115,7 +92,7 @@ window.onload = function () {
         coords: {xCoord: 268, yCoord: 430},
         details: {
           href: "www.google.com", elemId: "elem_2", elemInnerId: "inner_elem_2",
-          category:"Skin and Nail Conditions", examples:["Corns & Calluses", "Fungal Toenails", "Warts", "Athletes Foot", "Ingrown Toenails", "Cracked Heels", "Diabetic Foot Ulcer", "Blister"]
+          category:"Skin and Nail Conditions"
         }
       },
       {
@@ -123,14 +100,14 @@ window.onload = function () {
         coords: {xCoord: 185, yCoord: 400},
         details: {
           href: "www.google.com", elemId: "elem_3", elemInnerId: "inner_elem_3",
-          category:"Heel Pain", examples:["Plantar Fasciitis", "Achilles Tendinopathy", "Heel Spurs"]
+          category:"Heel Pain"
         }
       },
       {
         name: "knee",
         coords: {xCoord: 300, yCoord: 300},
         details: {href: "www.google.com", elemId: "elem_4", elemInnerId: "inner_elem_4",
-          category:"Knee Pain", examples:["OA", "Osgood-Schlatters", "ITB", "Patellofemoral Pain Syndrome (PFPS)"]
+          category:"Knee Pain"
         }
       },
       {
@@ -138,7 +115,7 @@ window.onload = function () {
         coords: {xCoord: 270, yCoord: 360},
         details: {
           href: "www.google.com", elemId: "elem_5", elemInnerId: "inner_elem_5",
-          category:"Leg Pain", examples:["Shin Splints"]
+          category:"Leg Pain"
         }
       },
       {
@@ -146,7 +123,7 @@ window.onload = function () {
         coords: {xCoord: 85, yCoord: 380},
         details: {
           href: "www.google.com", elemId: "elem_6", elemInnerId: "inner_elem_6",
-          category:"Ankle Pain", examples:["Achilles Tendinopathy", "Ankle Sprain", "Posterior Tibial Tendinopathy", "Peroneal Tendinopathy", "Tarsal Coalition"]
+          category:"Ankle Pain"
         }
       },
       {
@@ -154,7 +131,7 @@ window.onload = function () {
         coords: {xCoord: 30, yCoord: 400},
         details: {
           href: "www.google.com", elemId: "elem_7", elemInnerId: "inner_elem_7",
-          category:"Foot Pain", examples:["Bunions", "Plantar Fasciitis", "Plantar Fibroma", "Morton's Neuroma", "Bursitis", "Osteoarthritis", "Rheumatoid Arthritis", "Stress Fracture"]
+          category:"Foot Pain"
         }
       },
   ]
@@ -165,4 +142,13 @@ window.onload = function () {
   window.addEventListener('resize', function(event) {
       updateLinks(imageElem, links);
   }, true);
+
+  const elements = document.getElementsByClassName("cat-examples")
+  for (const element of elements) {
+        element.addEventListener('mouseleave', (e) => {
+            let elem = document.getElementById(e.target.id)
+            elem.textContent = ''
+            elem.style.borderRadius = '50%'
+        });
+    }
 }

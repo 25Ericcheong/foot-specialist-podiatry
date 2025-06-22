@@ -1,8 +1,6 @@
 #conditions-section {
     display: flex;
     justify-content: center;
-    border: 1px solid;
-    background-color: #FAF9F6;
 }
 
 .cat-examples {
@@ -15,7 +13,6 @@
 
 #conditions-women-running {
     width: 365px;
-    border: 1px solid;
     height: 100%;
 }
 
