@@ -5,17 +5,57 @@
 
 .cat-examples {
     background-color: #f8c761;
-    border: 1px solid black;
+    outline: solid 0px black;
     border-radius: 50%;
     position:absolute; 
     padding: 10px;
+    animation: blink 1s infinite;
+}
+
+.cat-examples a {
+    background-color: #f8c761;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    position:absolute;
+    border-radius: 5px;
+    white-space: nowrap;
+    padding: 5px;
+    animation: float 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        outline-width: 0px;
+        outline-offset: 0px;
+    }
+
+    50% {
+        outline-offset: 2px;
+    }
+
+    100% {
+        outline-width: 2px;
+        outline-offset: 4px;
+        outline-color: white;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(2px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 #conditions-women-running {
     width: 365px;
     height: 100%;
-}
-
-p {
-    margin: 0;
 }
